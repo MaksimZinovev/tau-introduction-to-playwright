@@ -1,0 +1,119 @@
+{
+  "config": {
+    "configFile": "/Users/maksim/repos/tau-introduction-to-playwright/playwright.config.ts",
+    "rootDir": "/Users/maksim/repos/tau-introduction-to-playwright/tests-examples",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1,
+      "totalTime": 2519.893999993801
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/maksim/repos/tau-introduction-to-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "all-browsers-and-tests",
+        "name": "all-browsers-and-tests",
+        "testDir": "/Users/maksim/repos/tau-introduction-to-playwright/tests-examples",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/maksim/repos/tau-introduction-to-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "",
+        "name": "",
+        "testDir": "/Users/maksim/repos/tau-introduction-to-playwright/tests-examples",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.36.0",
+    "workers": 10,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "demo-todo-app.spec.ts",
+      "file": "demo-todo-app.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Routing",
+          "file": "demo-todo-app.spec.ts",
+          "line": 334,
+          "column": 6,
+          "specs": [
+            {
+              "title": "@regression - should allow me to display all items",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "all-browsers-and-tests",
+                  "projectName": "all-browsers-and-tests",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 2036,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-07-27T07:34:34.953Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "849da1cee0c412ce5534-f13a9e8304e8c91edb2f",
+              "file": "demo-todo-app.spec.ts",
+              "line": 386,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

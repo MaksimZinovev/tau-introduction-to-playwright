@@ -28,3 +28,5 @@ Welcome to the course "Introduction to Playwright" by [Renata Andrade](https://t
 If you have questions, feel free to post them on [github](https://github.com/raptatinha/tau-introduction-to-playwright/issues).
 
 Happy Testing 🎭!
+
+2	9	0	0	2	0	2	0	2	0	0	2	1

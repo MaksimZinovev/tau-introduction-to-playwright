@@ -11,7 +11,7 @@ require('dotenv').config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  // testDir: './tests',
+  testDir: './tests/',
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -21,23 +21,24 @@ export default defineConfig({
 
   /* Retry on CI only */
   // retries: process.env.CI ? 2 : 0,
-  retries: 2,
+  retries: 0,
 
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  // workers: process.env.CI ? 1 : undefined,
+  workers: 2,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //reporter: 'html',
   // reporter: [['html', { open: 'always' }]], //always, never and on-failure (default).
   // reporter: [['html', { outputFolder: 'my-report' }]], // report is written into the playwright-report folder in the current working directory. override it using the PLAYWRIGHT_HTML_REPORT
   // reporter: 'dot',
-  // reporter: 'list',
-  /**
+  // reporter:  [['json', {  outputFile: 'test-results.json' }]],
+
     reporter: [
-      ['list'],
-      ['json', {  outputFile: 'test-results.json' }]
+      ['list'], ['html']
+      // ['json', {  outputFile: 'test-results.json' }]
     ],
-  */
+
   /**
    * custom reports: https://playwright.dev/docs/test-reporters#custom-reporters 
   */
@@ -50,10 +51,10 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    // headless: false,
+    headless: true,
     // ignoreHTTPSErrors: true,
     // viewport: { width: 1280, height: 720 },
-    // video: 'on-first-retry',
+    video: 'retain-on-failure',
   },
     // timeout: 30000, //https://playwright.dev/docs/test-timeouts
     // expect: {
@@ -65,27 +66,34 @@ export default defineConfig({
     // },
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+  outputDir: 'test-results/',
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        // viewport: { width: 1280, height: 720 },
-      },
-    },
+    // {
+    //   name: 'experiment',
+    //   use: { 
+    //     ...devices['iPhone 8'],
+    //     // viewport: { width: 1280, height: 720 },
+    //   },
+    // },
+    // {
+    //   name: 'chromium',
+    //   use: { 
+    //     ...devices['Desktop Chrome'],
+    //     // viewport: { width: 1280, height: 720 },
+    //   },
+    // },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     {
       name: 'all-browsers-and-tests',
@@ -95,43 +103,43 @@ export default defineConfig({
       },
     },
 
-    {
-      name: 'all-browsers-and-tests',
-      use: { 
-        baseURL: 'https://playwright.dev/',
-         ...devices['Desktop Safari']
-      },
-    },
+    // {
+    //   name: 'all-browsers-and-tests',
+    //   use: { 
+    //     baseURL: 'https://playwright.dev/',
+    //      ...devices['Desktop Safari']
+    //   },
+    // },
 
-    {
-      name: 'all-browsers-and-tests',
-      use: { 
-        baseURL: 'https://playwright.dev/',
-         ...devices['Desktop Firefox']
-      },
-    },
-
-    // Example only
-    {
-      name: 'local',
-      use: { 
-        baseURL: baseEnvUrl.local.home,
-      },
-    },
+    // {
+    //   name: 'all-browsers-and-tests',
+    //   use: { 
+    //     baseURL: 'https://playwright.dev/',
+    //      ...devices['Desktop Firefox']
+    //   },
+    // },
 
     // Example only
-    {
-      name: 'ci',
-      use: { 
-         baseURL: process.env.CI
-          ? baseEnvUrl.ci.prefix + process.env.GITHUB_REF_NAME + baseEnvUrl.ci.suffix //https://dev-myapp-chapter-2.mydomain.com
-          : baseEnvUrl.staging.home,
-      },
-      /**
-       * GitHub variables: https://docs.github.com/en/actions/learn-github-actions/variables
-       * GitLab variables: https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference
-       */
-    },
+    // {
+      // name: 'local',
+      // use: { 
+      //   baseURL: baseEnvUrl.local.home,
+      // },
+    // },
+
+    // Example only
+    // {
+    //   name: 'ci',
+    //   use: { 
+    //      baseURL: process.env.CI
+    //       ? baseEnvUrl.ci.prefix + process.env.GITHUB_REF_NAME + baseEnvUrl.ci.suffix //https://dev-myapp-chapter-2.mydomain.com
+    //       : baseEnvUrl.staging.home,
+    //   },
+    //   /**
+    //    * GitHub variables: https://docs.github.com/en/actions/learn-github-actions/variables
+    //    * GitLab variables: https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference
+    //    */
+    // },
 
     /* Test against mobile viewports. */
     // {

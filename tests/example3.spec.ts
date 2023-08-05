@@ -13,11 +13,13 @@ import {
     Eyes,
     Target
   } from '@applitools/eyes-playwright';
+  import * as dotenv from 'dotenv';
 
 const URL = 'https://playwright.dev/';
 let homePage: HomePage;
 let topMenuPage: TopMenuPage;
 const pageUrl = /.*intro/;
+dotenv.config();
 
 // Applitools
 // export const USE_ULTRAFAST_GRID: boolean = true;
@@ -42,7 +44,10 @@ test.beforeAll(async() => {
     Batch = new BatchInfo({name: `Playwright website - ${runnerName}`});
     
     Config = new Configuration();
-    // Config.setApiKey("<your-api-key>");
+    
+    if (process.env.APPLITOOLS_API_KEY) {
+        Config.setApiKey(process.env.APPLITOOLS_API_KEY);
+    } else console.error('APPLITOOLS_API_KEY is not defined in the environment');
     
     Config.setBatch(Batch);
     if (USE_ULTRAFAST_GRID) {

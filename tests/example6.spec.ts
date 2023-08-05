@@ -43,8 +43,9 @@ test("recent search is displayed", async ({ page }) => {
  await homePage.searchListPress('Enter');
  await homePage.waitForURL('**/locators');
  await homePage.waitForPageLoad();
- await homePage.clickSearch();
- // Test is flaky.Click works, but search dialog sometimes closes and test fails here
+//  await homePage.clickSearch();
+await homePage.keyboardPress('Control+k');
+ // Test is flaky.Click works, but search dialog sometimes closes and test fails on line 52
  await homePage.waitForSearchDocsList();
 
  // Assert

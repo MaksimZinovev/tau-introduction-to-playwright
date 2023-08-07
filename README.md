@@ -1,4 +1,8 @@
-# Introduction to Playwright
+# About
+
+Completed exercises from course [Test Automation University](https://testautomationu.applitools.com/). Forked from [github](https://github.com/raptatinha/tau-introduction-to-playwright/)
+
+## Introduction to Playwright
 
 Hi 👋🏽!
 
